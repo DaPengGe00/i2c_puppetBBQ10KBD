@@ -27,14 +27,13 @@
 	6, \
 	7
 
-#define NUM_OF_COLS			6
+#define NUM_OF_COLS			5
 #define PINS_COLS \
 	8,  \
 	9,  \
 	14, \
 	13, \
-	12, \
-	11
+	12
 
 #define NUM_OF_BTNS			1
 #define PINS_BTNS \
