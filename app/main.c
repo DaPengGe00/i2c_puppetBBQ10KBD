@@ -38,7 +38,7 @@ int main(void)
 
 	keyboard_init();
 
-	touchpad_init();
+	///touchpad_init();
 
 	interrupt_init();
 
