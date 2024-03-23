@@ -50,9 +50,9 @@ static const struct entry kbd_entries[][NUM_OF_COLS] =
 	{ { 'W', '1' },       { 'S', '4' },       { 'G', '/' },       { 'H', ':'  }, { 'L', '"'  } },
 	{ { KEY_JOY_RIGHT }, { 'D', '5' },       { 'T', '(' },       { 'Y', ')'  }, { 'I', '-'  } },
 	{ { 'A', '*' },       { 'P', '@' },       { .mod = KEY_MOD_ID_SHR }, { '\n', '|' }, { '\b'      } },
-	{ { .mod = KEY_MOD_ID_ALT }, { 'X', '8' },       { 'V', '?' },       { 'B', '!'  }, { '$', '`'  } },
+	{ { .mod = KEY_MOD_ID_ALT }, { 'X', '8' },       { 'V', '?' },       { 'B', '!'  }, { KEY_JOY_DOWN, '`'  } },
 	{ { ' ', '\t' },      { 'Z', '7' },       { 'C', '9' },       { 'N', ','  }, { 'M', '.'  } },
-	{ { KEY_JOY_DOWN , '0' },       { .mod =KEY_MOD_ID_SHL }, { 'F', '6' },       { 'J', ';'  }, { 'K', '\'' } },
+	{ { '~' , '0' },       { .mod =KEY_MOD_ID_SHL }, { 'F', '6' },       { 'J', ';'  }, { 'K', '\'' } },
 
 
 };
