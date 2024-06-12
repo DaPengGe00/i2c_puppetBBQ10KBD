@@ -48,11 +48,11 @@ static const struct entry kbd_entries[][NUM_OF_COLS] =
 
 	{ { 'Q', '#' },       { 'E', '2' },       { 'R', '3' },       { 'U', '_'  }, { 'O', '+'  } },
 	{ { 'W', '1' },       { 'S', '4' },       { 'G', '/' },       { 'H', ':'  }, { 'L', '"'  } },
-	{ { KEY_JOY_RIGHT }, { 'D', '5' },       { 'T', '(' },       { 'Y', ')'  }, { 'I', '-'  } },
+	{ { KEY_BTN_RIGHT1 }, { 'D', '5' },       { 'T', '(' },       { 'Y', ')'  }, { 'I', '-'  } },
 	{ { 'A', '*' },       { 'P', '@' },       { .mod = KEY_MOD_ID_SHR }, { '\n', '|' }, { '\b'      } },
-	{ { .mod = KEY_MOD_ID_ALT }, { 'X', '8' },       { 'V', '?' },       { 'B', '!'  }, { KEY_JOY_DOWN, '`'  } },
+	{ { .mod = KEY_MOD_ID_ALT }, { 'X', '8' },       { 'V', '?' },       { 'B', '!'  }, { '$', '`'  } },
 	{ { ' ', '\t' },      { 'Z', '7' },       { 'C', '9' },       { 'N', ','  }, { 'M', '.'  } },
-	{ { '~' , '0' },       { .mod =KEY_MOD_ID_SHL }, { 'F', '6' },       { 'J', ';'  }, { 'K', '\'' } },
+	{ {KEY_BTN_LEFT1},       { .mod =KEY_MOD_ID_SHL }, { 'F', '6' },       { 'J', ';'  }, { 'K', '\'' } },
 
 
 };
@@ -126,6 +126,23 @@ static void transition_to(struct list_item * const p_item, const enum key_state 
 					const bool alt = self.mods[KEY_MOD_ID_ALT] | self.numlock;
 					const bool is_button = (key <= KEY_BTN_RIGHT1) || ((key >= KEY_BTN_LEFT2) && (key <= KEY_BTN_RIGHT2));
 
+					if (is_button) {
+                      			 switch (key) {
+                      			  case KEY_BTN_LEFT1:
+                       	 		    if (alt) {
+                          		      key = KEY_JOY_DOWN;
+                       			    } else {
+                          		      key ='0'; // ESC
+                        		    }
+                       			     break;
+                      		          case KEY_BTN_RIGHT1:
+				              key = KEY_JOY_DOWN;
+				              break;
+				          default:
+				           //                        printf(" ERROR: Illegal key: %d\n", key);
+				           ;
+				          }
+				        } else
 					if (alt && !is_button) {
 						key = p_entry->alt;
 					} else if (!shift && (key >= 'A' && key <= 'Z')) {
