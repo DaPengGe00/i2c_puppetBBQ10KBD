@@ -130,9 +130,9 @@ static void transition_to(struct list_item * const p_item, const enum key_state 
                       			 switch (key) {
                       			  case KEY_BTN_LEFT1:
                        	 		    if (alt) {
-                          		      key = KEY_JOY_DOWN;
+					      key ='0'; 
                        			    } else {
-                          		      key ='0'; // ESC
+                          		      key = KEY_JOY_DOWN;
                         		    }
                        			     break;
                       		          case KEY_BTN_RIGHT1:
