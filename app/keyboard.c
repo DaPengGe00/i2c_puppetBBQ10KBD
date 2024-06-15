@@ -136,7 +136,7 @@ static void transition_to(struct list_item * const p_item, const enum key_state 
                         		    }
                        			     break;
                       		          case KEY_BTN_RIGHT1:
-				              key = KEY_JOY_DOWN;
+				              key = KEY_JOY_RIGHT;
 				              break;
 				          default:
 				           //                        printf(" ERROR: Illegal key: %d\n", key);
